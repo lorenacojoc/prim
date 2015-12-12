@@ -1,16 +1,520 @@
 <!DOCTYPE html>
 <html ng-app="blog">
 <head>
-  <title>My application</title>
+  <title>Lorena's App</title>
   <link rel="stylesheet" media="all" href="css/bootstrap.min.css">
   <link rel="stylesheet" media="all" href="css/custom.css">
 </head>
 <body>
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">AWJ Base Project</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#Actor">Actor</a></li>
+            <li><a href="#Party">Party</a></li>
+            <li><a href="#Product">Product</a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <hr/>
 
   <div class="container">
     <div ng-controller="HomeController">
       <h1>{{ helloWorld }}</h1>
+      <p>Writing this live into the browser...</p>
     </div>
+  </div>
+
+  <hr/>
+
+  <!-- /resources1 -->
+  <div class="container">
+    <h1 id="Actor">Actor</h1>
+    <h2>List of actors:</h2>
+    <table class="table table-bordered">
+      <tr>
+        <th>Movie</th>
+        <th>Name</th>
+        
+        <th style="width:210px;">Options</th>
+      </tr>
+      <tr>
+        <td>The Hunger Games</td>
+        <td>Liam Hemsworth</td>
+        
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Thor</td>
+        <td>Chris Hemsworth</td>
+        
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>The Anomaly</td>
+        <td>Ian Somerhalder</td>
+        
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      
+    </table>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h2>Edit actors:</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">Movie</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Movie">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Name</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Name">
+          </div>
+          
+          <button type="submit" class="btn btn-info">Save</button>
+        </form>
+      </div>
+
+
+      <div class="col-md-3 col-md-offset-6">
+        <h2>Add actors:</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">Movie</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Movie">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Name</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Name">
+          </div>
+          
+          <button type="submit" class="btn btn-success">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Show actors:</h2>
+      </div>
+      <div class="col-md-2">
+        <img src="http://vignette3.wikia.nocookie.net/marvelmovies/images/6/61/Thor_poster_red.jpg/revision/latest?cb=20140218060252" class="img-thumbnail"/>
+      </div>
+      <div class="col-md-10">
+        <h1>Thor</h1>
+        <p>Chris Hemsworth</p>
+        
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- /resources2-->
+  <div class="container">
+    <h1 id="Party">Party</h1>
+    <h2>List parties:</h2>
+    <table class="table table-bordered">
+      <tr>
+          
+       
+        <th>ID</th>
+        <th>Nr Guests</th>
+        <th>Theme</th>
+          
+    <th style="width:210px;">Options</th> 
+        </tr>
+        <tr>
+        <td>1</td>
+        <td>10</td>
+        <td>Halloween</td>
+        
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>20</td>
+        <td>Spring</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>30</td>
+        <td>Vampire</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      
+    </table>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h2>Edit a party:</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">ID</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="ID">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Nr Guests</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Nr Guests">
+          </div>
+             <div class="form-group">
+            <label for="attribute1">Theme</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Theme">
+          </div>
+          <button type="submit" class="btn btn-info">Save</button>
+        </form>
+      </div>
+
+
+      <div class="col-md-3 col-md-offset-6">
+        <h2>Add a new party:</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">ID</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="ID">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Nr Guests</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Nr Guests">
+          </div>
+           <div class="form-group">
+            <label for="attribute1">Theme</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Theme">
+          </div>
+            
+          <button type="submit" class="btn btn-success">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Show parties:</h2>
+      </div>
+      <div class="col-md-2">
+        <img src="http://www.inoras.ro/photolvl1_halloween-party_events_posters_26_30726_large.jpg" class="img-thumbnail"/>
+      </div>
+      <div class="col-md-10">
+        <h1>Halloween</h1>
+        <p>guests: 10</p>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+    
+    <!-- /resources3-->
+  <div class="container">
+    <h1 id="Product">Product</h1>
+    <h2>List products:</h2>
+    <table class="table table-bordered">
+      <tr>
+          
+       
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Details</th>
+          
+    <th style="width:210px;">Options</th> 
+        </tr>
+        <tr>
+        <td>1</td>
+        <td>Parfum</td>
+        <td>250.57</td>
+        <td>lily,rose</td>
+        
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>tricou</td>
+        <td>30.25</td>
+        <td>red</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>pantofi</td>
+        <td>340.67</td>
+        <td>leather</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      
+    </table>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h2>Edit a product:</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">ID</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="ID">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Name</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Name">
+          </div>
+             <div class="form-group">
+            <label for="attribute1">Price</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Price">
+          </div>
+          <button type="submit" class="btn btn-info">Save</button>
+        </form>
+      </div>
+
+
+      <div class="col-md-3 col-md-offset-6">
+        <h2>Add a new product:</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">ID</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="ID">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Name</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Name">
+          </div>
+           <div class="form-group">
+            <label for="attribute1">Price</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Price">
+          </div>
+            
+          <button type="submit" class="btn btn-success">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Show products:</h2>
+      </div>
+      <div class="col-md-2">
+        <img src="http://img0.liveinternet.ru/images/attach/c/3/78/154/78154822_miss_dior_cherie_blossom.jpg" class="img-thumbnail"/>
+      </div>
+      <div class="col-md-10">
+        <h1>Parfum</h1>
+        <p>250,57 RON</p>
+        
+          
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th>Details:</th>
+           
+          </tr>
+          <tr>
+            <td>Lily</td>
+            
+          </tr>
+          <tr>
+            <td>Rose</td>
+            
+          </tr>
+         
+            
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+
+  <div class="container">
+    <footer class="footer">
+      <p class="text-muted pull-left">AWJ Base Project &copy; 2015-2016</p>
+      <p class="text-muted pull-right">Cojoc Lorena, 332AA</p>
+    </footer>
   </div>
 
   <script src="js/jquery-1.11.3.min.js"></script>
