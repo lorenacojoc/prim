@@ -23,9 +23,9 @@ public class ProductController {
   private List<Product> products = new ArrayList<Product>();
 
   ProductController() {
-    Product p1 = new Product(1, "parfum",250.57,"lily,rose");
-    Product p2 = new Product(2, "tricou", 30.25,"red");
-    Product p3 = new Product(3, "pantofi", 340.67,"leather");
+    Product p1 = new Product(1, "parfum",250.57);
+    Product p2 = new Product(2, "tricou", 30.25);
+    Product p3 = new Product(3, "pantofi", 340.67);
 
     products.add(p1);
     products.add(p2);
@@ -66,10 +66,10 @@ public class ProductController {
         @RequestParam(value="id", defaultValue="7") int id,
         @RequestParam(value="name", defaultValue="Yolo") String name,
         @RequestParam(value="price", defaultValue="77.77") double price
-        @RequestParam(value="details",defaultValue="") String details){
+        ){
 
 
-        Product prod = new Product(id,name,price,details);
+        Product prod = new Product(id,name,price);
         this.products.add(prod);
 
    return new ResponseEntity<Product>(prod, new HttpHeaders(), HttpStatus.OK);
