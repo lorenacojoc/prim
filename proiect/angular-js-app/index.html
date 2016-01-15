@@ -40,475 +40,246 @@
     </div>
   </div>
 
-  <hr/>
+  
 
   <!-- /resources1 -->
-  <div class="container">
-    <h1 id="Actor">Actor</h1>
-    <h2>List of actors:</h2>
-    <table class="table table-bordered">
-      <tr>
-        <th>Movie</th>
-        <th>Name</th>
-        
-        <th style="width:210px;">Options</th>
-      </tr>
-      <tr>
-        <td>The Hunger Games</td>
-        <td>Liam Hemsworth</td>
-        
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
+   <div class="container" ng-controller="HomeController">
+      <h1 id="Actor">Actor</h1>
+        <h2>List all actors</h2>
+           <table class="table table-bordered">
+              <tr>
+                <th ng-repeat="key in keys">{{ key }}</th>
+                <th style="width:210px;">Options</th>
+            </tr>
+              <tr ng-repeat="item in actors.data" >
+                  <td>{{ item.movie }}</td>
+                  <td>{{ item.name }}</td>
+                  <td>
+            <a href="">
+              <span class="label label-success" ng-click="openActor(item)">
+                Open
+                <span class="glyphicon glyphicon-folder-open"></span>
+              </span>
+            </a>
+          <button ng-click="setUpdateActor(item)" class="btn btn-info btn-xs">
               Edit
               <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
+            </a>
+            <button ng-click="deleteActor(item.name)" class="btn btn-danger btn-xs">
               Remove
               <span class="glyphicon glyphicon-remove"></span>
-            </span>
+            </button>
           </a>
         </td>
       </tr>
-      <tr>
-        <td>Thor</td>
-        <td>Chris Hemsworth</td>
-        
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>The Anomaly</td>
-        <td>Ian Somerhalder</td>
-        
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      
     </table>
 
-    <div class="row">
-      <div class="col-md-3">
-        <h2>Edit actors:</h2>
-        <form action="" method="">
-          <div class="form-group">
-            <label for="attribute1">Movie</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Movie">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Name</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Name">
-          </div>
-          
-          <button type="submit" class="btn btn-info">Save</button>
-        </form>
-      </div>
+    <h2>Add new actor</h2>  
+    <table>
+      <tr>
+        <td>Movie</td>
+        <td><input type="text" class="form-control" ng-model="actor.movie"/></td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><input type="text" class="form-control" ng-model="actor.name"/></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button ng-click="addActor(actor)" class="btn btn-primary btn-xs">Add</button>
+        </td>
+      </tr>
+    </table>
 
 
-      <div class="col-md-3 col-md-offset-6">
-        <h2>Add actors:</h2>
-        <form action="" method="">
-          <div class="form-group">
-            <label for="attribute1">Movie</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Movie">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Name</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Name">
-          </div>
-          
-          <button type="submit" class="btn btn-success">Add</button>
-        </form>
-      </div>
-    </div>
+    <h2>Edit actor</h2>
+    <table>
+      <tr>
+        <td>Movie</td>
+        <td><input type="text" ng-model="editActor.movie"></td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><input type="text" ng-model="editActor.name"></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button class="btn btn-info btn-xs" ng-click="updateActor()">
+            Update
+          </button>
+        </td>
+      </tr>
+    </table>
 
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Show actors:</h2>
-      </div>
-      <div class="col-md-2">
-        <img src="http://vignette3.wikia.nocookie.net/marvelmovies/images/6/61/Thor_poster_red.jpg/revision/latest?cb=20140218060252" class="img-thumbnail"/>
-      </div>
-      <div class="col-md-10">
-        <h1>Thor</h1>
-        <p>Chris Hemsworth</p>
-        
-      </div>
-    </div>
-  </div>
-
-  <hr/>
+</div>
+   
 
   <!-- /resources2-->
-  <div class="container">
+  <div class="container" ng-controller="PController">
     <h1 id="Party">Party</h1>
-    <h2>List parties:</h2>
+    <h2>List all parties</h2>
     <table class="table table-bordered">
       <tr>
-          
-       
-        <th>ID</th>
-        <th>Nr Guests</th>
-        <th>Theme</th>
-          
-    <th style="width:210px;">Options</th> 
-        </tr>
-        <tr>
-        <td>1</td>
-        <td>10</td>
-        <td>Halloween</td>
+        <th ng-repeat="key in keys">{{ key }}</th>
+        <th style="width:210px;">Options</th>
+      </tr>
+      <tr ng-repeat="item in parties.data" >
+        <td>{{ item.id }}</td>
+        <td>{{ item.nr_guests }}</td>
+        <td>{{ item.theme }}</td>
         
+
         <td>
           <a href="">
-            <span class="label label-success">
+            <span class="label label-success" ng-click="openParty(item)">
               Open
               <span class="glyphicon glyphicon-folder-open"></span>
             </span>
           </a>
-          <a href="">
-            <span class="label label-primary">
+          <button ng-click="setUpdateParty(item)" class="btn btn-info btn-xs">
               Edit
               <span class="glyphicon glyphicon-edit"></span>
-            </span>
           </a>
-          <a href="">
-            <span class="label label-danger">
+          <button ng-click="deleteParty(item.id)" class="btn btn-danger btn-xs">
               Remove
               <span class="glyphicon glyphicon-remove"></span>
-            </span>
+            </button>
           </a>
         </td>
       </tr>
-      <tr>
-        <td>2</td>
-        <td>20</td>
-        <td>Spring</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>30</td>
-        <td>Vampire</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      
     </table>
 
-    <div class="row">
-      <div class="col-md-3">
-        <h2>Edit a party:</h2>
-        <form action="" method="">
-          <div class="form-group">
-            <label for="attribute1">ID</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="ID">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Nr Guests</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Nr Guests">
-          </div>
-             <div class="form-group">
-            <label for="attribute1">Theme</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Theme">
-          </div>
-          <button type="submit" class="btn btn-info">Save</button>
-        </form>
-      </div>
+    <h2>Add new party</h2>
+    <table>
+      <tr>
+        <td>ID</td>
+        <td><input type="text" class="form-control" ng-model="party.id"/></td>
+      </tr>
+      <tr>
+        <td>Nr.Guests</td>
+        <td><input type="text" class="form-control" ng-model="party.nr_guests"/></td>
+      </tr>
+      <tr>
+        <td>Theme</td>
+        <td><input type="text" class="form-control" ng-model="party.theme"/></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button ng-click="addParty(party)" class="btn btn-primary btn-xs">Add</button>
+        </td>
+      </tr>
+    </table>
 
 
-      <div class="col-md-3 col-md-offset-6">
-        <h2>Add a new party:</h2>
-        <form action="" method="">
-          <div class="form-group">
-            <label for="attribute1">ID</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="ID">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Nr Guests</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Nr Guests">
-          </div>
-           <div class="form-group">
-            <label for="attribute1">Theme</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Theme">
-          </div>
-            
-          <button type="submit" class="btn btn-success">Add</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Show parties:</h2>
-      </div>
-      <div class="col-md-2">
-        <img src="http://www.inoras.ro/photolvl1_halloween-party_events_posters_26_30726_large.jpg" class="img-thumbnail"/>
-      </div>
-      <div class="col-md-10">
-        <h1>Halloween</h1>
-        <p>guests: 10</p>
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <hr/>
+    <h2>Edit party</h2>
+    <table>
+      <tr>
+        <td>ID</td>
+        <td><input type="text" ng-model="editParty.id"></td>
+      </tr>
+      <tr>
+        <td>Nr.Guests</td>
+        <td><input type="text" ng-model="editParty.nr_guests"></td>
+      </tr>
+      <tr>
+        <td>Theme</td>
+        <td><input type="text" ng-model="editParty.theme"></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button class="btn btn-info btn-xs" ng-click="updateParty()">
+            Update
+          </button>
+        </td>
+      </tr>
+    </table>
     
+</div>
+
+   
+  
     <!-- /resources3-->
-  <div class="container">
-    <h1 id="Product">Product</h1>
-    <h2>List products:</h2>
-    <table class="table table-bordered">
-      <tr>
-          
-       
-        <th>ID</th>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Details</th>
-          
-    <th style="width:210px;">Options</th> 
-        </tr>
-        <tr>
-        <td>1</td>
-        <td>Parfum</td>
-        <td>250.57</td>
-        <td>lily,rose</td>
+  
+    <div class="container" ng-controller="PPController">
+      <h1 id="Product">Product</h1>
+      <h2>List all products</h2>
+   <table class="table table-bordered">
+               <tr>
+                    <th ng-repeat="key in keys">{{ key }}</th>
+                    <th style="width:210px;">Options</th>
+               </tr>
+     <tr ng-repeat="item in products.data" >
+           <td>{{ item.id }}</td>
+           <td>{{ item.name }}</td>
+           <td>{{ item.price }}</td>
         
-        <td>
+
+      <td>
           <a href="">
-            <span class="label label-success">
+            <span class="label label-success" ng-click="openProduct(item)">
               Open
-              <span class="glyphicon glyphicon-folder-open"></span>
+             <span class="glyphicon glyphicon-folder-open"></span>
             </span>
           </a>
-          <a href="">
-            <span class="label label-primary">
+          <button ng-click="setUpdateProduct(item)" class="btn btn-info btn-xs">
               Edit
               <span class="glyphicon glyphicon-edit"></span>
-            </span>
           </a>
-          <a href="">
-            <span class="label label-danger">
+          <button ng-click="deleteProduct(item.id)" class="btn btn-danger btn-xs">
               Remove
               <span class="glyphicon glyphicon-remove"></span>
-            </span>
+            </button>
           </a>
         </td>
       </tr>
-      <tr>
-        <td>2</td>
-        <td>tricou</td>
-        <td>30.25</td>
-        <td>red</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>pantofi</td>
-        <td>340.67</td>
-        <td>leather</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      
     </table>
 
-    <div class="row">
-      <div class="col-md-3">
-        <h2>Edit a product:</h2>
-        <form action="" method="">
-          <div class="form-group">
-            <label for="attribute1">ID</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="ID">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Name</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Name">
-          </div>
-             <div class="form-group">
-            <label for="attribute1">Price</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Price">
-          </div>
-          <button type="submit" class="btn btn-info">Save</button>
-        </form>
-      </div>
+    <h2>Add new product</h2>
+    <table>
+      <tr>
+        <td>ID</td>
+        <td><input type="text" class="form-control" ng-model="product.id"/></td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><input type="text" class="form-control" ng-model="product.name"/></td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td><input type="text" class="form-control" ng-model="product.price"/></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button ng-click="addProduct(product)" class="btn btn-primary btn-xs">Add</button>
+        </td>
+      </tr>
+    </table>
 
 
-      <div class="col-md-3 col-md-offset-6">
-        <h2>Add a new product:</h2>
-        <form action="" method="">
-          <div class="form-group">
-            <label for="attribute1">ID</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="ID">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Name</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Name">
-          </div>
-           <div class="form-group">
-            <label for="attribute1">Price</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Price">
-          </div>
-            
-          <button type="submit" class="btn btn-success">Add</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Show products:</h2>
-      </div>
-      <div class="col-md-2">
-        <img src="http://img0.liveinternet.ru/images/attach/c/3/78/154/78154822_miss_dior_cherie_blossom.jpg" class="img-thumbnail"/>
-      </div>
-      <div class="col-md-10">
-        <h1>Parfum</h1>
-        <p>250,57 RON</p>
-        
-          
-        <table class="table table-bordered table-striped">
-          <tr>
-            <th>Details:</th>
-           
-          </tr>
-          <tr>
-            <td>Lily</td>
-            
-          </tr>
-          <tr>
-            <td>Rose</td>
-            
-          </tr>
-         
-            
-        </table>
-      </div>
-    </div>
+    <h2>Edit product</h2>
+    <table>
+      <tr>
+        <td>ID</td>
+        <td><input type="text" ng-model="editProduct.id"></td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td><input type="text" ng-model="editProduct.name"></td>
+      </tr>
+      <tr>
+        <td>Price</td>
+        <td><input type="text" ng-model="editProduct.price"></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <button class="btn btn-info btn-xs" ng-click="updateProduct()">
+            Update
+          </button>
+        </td>
+      </tr>
+    </table>
   </div>
-
-  <hr/>
-
+ 
 
   <div class="container">
     <footer class="footer">
